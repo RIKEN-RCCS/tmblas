@@ -1,0 +1,61 @@
+# Copyright © 2022-203, RIKEN Center for Computational Science. All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause
+# This program is free software: you can redistribute it and/or modify it under
+# the terms of the BSD 3-Clause license. See the accompanying LICENSE file.
+
+# appropriate combination for quadruple precision arithmetic is necessary
+# that depepnds on usage of DD, __float128 (GNU/Intel), or long double (Clang)
+
+include ../Makefile.generic.inc
+
+TMBLAS_INC = -I../src
+TMBLAS_LIB = -L../src -ltmblas
+MKL_LIB = -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -liomp5 
+
+SRCS = mixedp_add_test.cpp \
+       mixedp_sub_test.cpp \
+       mixedp_mul_test.cpp \
+       mixedp_div_test.cpp \
+       mixedp_madd_test.cpp \
+       mixedp_msub_test.cpp \
+       test_csrreal.cpp test_csrcmpx.cpp
+OBJS = $(SRCS:%.cpp=%.o)
+EXEC = $(SRCS:%.cpp=%)
+
+all: $(EXEC)
+
+mixedp_add_test.o : mixedp_add_test.cpp test_util.hpp
+mixedp_sub_test.o : mixedp_sub_test.cpp test_util.hpp
+mixedp_mul_test.o : mixedp_mul_test.cpp test_util.hpp
+mixedp_div_test.o : mixedp_div_test.cpp test_util.hpp
+mixedp_madd_test.o : mixedp_madd_test.cpp test_util.hpp
+mixedp_msub_test.o : mixedp_msub_test.cpp test_util.hpp
+test_csrreal.o : test_csrreal.cpp
+test_csrcpmx.o : test_csrcmpx.cpp
+
+mixedp_add_test : mixedp_add_test.o
+mixedp_sub_test : mixedp_sub_test.o
+mixedp_mul_test : mixedp_mul_test.o
+mixedp_div_test : mixedp_div_test.o
+mixedp_madd_test : mixedp_madd_test.o
+mixedp_msub_test : mixedp_msub_test.o
+trsv_test_qd : trsv_test_qd.o
+gemm_test_qd : gemm_test_qd.o
+test_csrreal : test_csrreal.o
+test_csrcmpx : test_csrcmpx.o
+
+%.o : %.cpp
+	$(CXX) $(CXXFLAGS) -I. $(TMBLASINC) $(BLASINC) $(QUADINC) -c $< -o $@
+
+test_csrreal: test_csrreal.o
+	$(CXX) -o $@ $< $(TMBLASLIB) $(BLASLIB) $(QUADLIB) $(TESTBLASLIB) -lm 
+
+test_csrcmpx: test_csrcmpx.o
+	$(CXX) -o $@ $< $(TMBLASLIB) $(BLASLIB) $(QUADLIB) $(TESTBLASLIB) -lm 
+
+%: %.o
+	$(CXX) -o $@ $< $(TMBLASLIB) $(BLASLIB) $(QUADLIB)
+
+clean:
+	-rm -f $(OBJS) $(EXEC) 
+

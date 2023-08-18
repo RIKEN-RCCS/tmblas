@@ -1,0 +1,11 @@
+2023.08.18
+  - Version 0.1: Initial release.
+  	- BLAS routines
+		- level-1: scal, axpy, dot, nrm2, iamax
+		- level-2: gemv, symv, hemv, trmv, trsv, ger, geru, syr, her, syr2, her2
+		- level-3: gemm, symm, hemm, syrk, herk, syr2k, her2k, hemm, trsm
+		- extension: gemmt, omatcopy, csrgemv, csrsymv, csrhemv, csrgemm, csrsymm, csrhemm
+	- TEST
+		- test-self
+		- test-cblas
+		- test-blaspp

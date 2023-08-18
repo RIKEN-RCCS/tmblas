@@ -1,0 +1,82 @@
+# Copyright © 2022-2023, RIKEN Center for Computational Science. All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause
+# This program is free software: you can redistribute it and/or modify it under
+# the terms of the BSD 3-Clause license. See the accompanying LICENSE file.
+
+## definitions of compiler and libraries
+
+# appropriate combination for quadruple precision arithmetic is necessary
+# that depepnds on usage of DD, __float128 (GNU/Intel), or long double (Clang)
+
+include ../Makefile.generic.inc
+
+
+## dependencies
+
+all: libtmblas.a
+
+SRCS = tmblasarch.cpp mixedp_type_conv.cpp mixedp_cmp.cpp mixedp_add.cpp mixedp_sub.cpp \
+        mixedp_mul.cpp mixedp_div.cpp mixedp_madd.cpp mixedp_msub.cpp \
+       gemm.cpp gemmt.cpp symm.cpp hemm.cpp axpy.cpp trsv.cpp asum.cpp dot.cpp dotu.cpp gemv.cpp ger.cpp geru.cpp \
+       iamax.cpp nrm2.cpp scal.cpp symv.cpp hemv.cpp syr.cpp her.cpp syr2.cpp her2.cpp syr2k.cpp \
+       syrk.cpp herk.cpp her2k.cpp trmm.cpp trmv.cpp trsm.cpp omatcopy.cpp \
+       csrgemv.cpp csrgemm.cpp csrsymv.cpp csrsymm.cpp csrhemv.cpp csrhemm.cpp
+
+OBJS = $(SRCS:%.cpp=%.o)
+
+tmblasarch.o : tmblasarch.cpp tmblasarch.hpp
+mixedp_type_conv.o : mixedp_type_conv.cpp tmblasarch.hpp mixedp_type_conv.hpp
+mixedp_cmp.o : mixedp_cmp.cpp tmblasarch.hpp mixedp_cmp.hpp
+mixedp_add.o : mixedp_add.cpp tmblasarch.hpp mixedp_add.hpp
+mixedp_sub.o : mixedp_sub.cpp tmblasarch.hpp mixedp_sub.hpp
+mixedp_mul.o : mixedp_mul.cpp tmblasarch.hpp mixedp_mul.hpp
+mixedp_div.o : mixedp_div.cpp tmblasarch.hpp mixedp_div.hpp
+mixedp_madd.o : mixedp_madd.cpp tmblasarch.hpp mixedp_madd.hpp
+mixedp_msub.o : mixedp_msub.cpp tmblasarch.hpp mixedp_msub.hpp
+gemm.o  : gemm.cpp  tmblas.hpp tmblasarch.hpp gemm.hpp gemm_tmpl.hpp
+gemmt.o : gemmt.cpp tmblas.hpp tmblasarch.hpp gemmt.hpp gemmt_tmpl.hpp
+symm.o : symm.cpp  tmblas.hpp tmblasarch.hpp symm.hpp symm_tmpl.hpp
+hemm.o : hemm.cpp  tmblas.hpp tmblasarch.hpp hemm.hpp hemm_tmpl.hpp
+axpy.o  : axpy.cpp  tmblas.hpp tmblasarch.hpp axpy.hpp axpy_tmpl.hpp
+trsv.o  : trsv.cpp  tmblas.hpp tmblasarch.hpp trsv.hpp trsv_tmpl.hpp
+asum.o   : asum.cpp   tmblas.hpp tmblasarch.hpp asum.hpp asum_tmpl.hpp
+dot.o   : dot.cpp   tmblas.hpp tmblasarch.hpp dot.hpp dot_tmpl.hpp
+gemv.o  : gemv.cpp  tmblas.hpp tmblasarch.hpp gemv.hpp gemv_tmpl.hpp
+ger.o   : ger.cpp   tmblas.hpp tmblasarch.hpp ger.hpp ger_tmpl.hpp
+geru.o  : geru.cpp  tmblas.hpp tmblasarch.hpp geru.hpp geru_tmpl.hpp
+iamax.o : iamax.cpp tmblas.hpp tmblasarch.hpp iamax.hpp iamax_tmpl.hpp
+nrm2.o  : nrm2.cpp  tmblas.hpp tmblasarch.hpp nrm2.hpp nrm2_tmpl.hpp
+scal.o  : scal.cpp  tmblas.hpp tmblasarch.hpp scal.hpp scal_tmpl.hpp
+symv.o  : symv.cpp  tmblas.hpp tmblasarch.hpp symv.hpp symv_tmpl.hpp
+hemv.o  : hemv.cpp  tmblas.hpp tmblasarch.hpp hemv.hpp hemv_tmpl.hpp
+syr.o   : syr.cpp   tmblas.hpp tmblasarch.hpp syr.hpp syr_tmpl.hpp
+her.o   : her.cpp   tmblas.hpp tmblasarch.hpp her.hpp her_tmpl.hpp
+her2.o  : her2.cpp  tmblas.hpp tmblasarch.hpp her2.hpp her2_tmpl.hpp
+syr2.o  : syr2.cpp  tmblas.hpp tmblasarch.hpp syr2.hpp syr2_tmpl.hpp
+syr2k.o : syr2k.cpp tmblas.hpp tmblasarch.hpp syr2k.hpp syr2k_tmpl.hpp
+syrk.o  : syrk.cpp  tmblas.hpp tmblasarch.hpp syrk.hpp syrk_tmpl.hpp
+herk.o  : herk.cpp  tmblas.hpp tmblasarch.hpp herk.hpp herk_tmpl.hpp
+her2k.o : her2k.cpp  tmblas.hpp tmblasarch.hpp her2k.hpp her2k_tmpl.hpp
+trmm.o  : trmm.cpp  tmblas.hpp tmblasarch.hpp trmm.hpp trmm_tmpl.hpp
+trmv.o  : trmv.cpp  tmblas.hpp tmblasarch.hpp trmv.hpp trmv_tmpl.hpp
+trsm.o  : trsm.cpp  tmblas.hpp tmblasarch.hpp trsm.hpp trsm_tmpl.hpp
+omatcopy.o : omatcopy.cpp tmblas.hpp tmblasarch.hpp omatcopy.hpp omatcopy_tmpl.hpp
+csrgemv.o : csrgemv.cpp tmblas.hpp tmblasarch.hpp csrgemv.hpp csrgemv_tmpl.hpp
+csrgemm.o : csrgemm.cpp tmblas.hpp tmblasarch.hpp csrgemm.hpp csrgemm_tmpl.hpp
+csrsymv.o : csrsymv.cpp tmblas.hpp tmblasarch.hpp csrsymv.hpp csrsymv_tmpl.hpp
+csrsymm.o : csrsymm.cpp tmblas.hpp tmblasarch.hpp csrsymm.hpp csrsymm_tmpl.hpp
+csrhemv.o : csrhemv.cpp tmblas.hpp tmblasarch.hpp csrhemv.hpp csrhemv_tmpl.hpp
+csrhemm.o : csrhemm.cpp tmblas.hpp tmblasarch.hpp csrhemm.hpp csrhemm_tmpl.hpp
+
+%.o : %.cpp
+	$(CXX) $(CXXFLAGS) -I. $(BLASINC) $(QUADINC) -c $< -o $@
+
+libtmblas.a: $(OBJS)
+	$(AR) $@ $?
+
+
+clean:
+	-rm -f $(OBJS) libtmblas.a
+
+tar:
+	tar czvf tmblas.tar.gz Makefile tmblasarch.[ch]pp gemm.[ch]pp gemmt.[ch]pp trsv.[ch]pp tmblas.hpp test.cpp testoct.cpp util.hpp

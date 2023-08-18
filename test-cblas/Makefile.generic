@@ -1,0 +1,32 @@
+# Copyright (c) 2022-2023, RIKEN Center for Computational Science. All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause
+# This program is free software: you can redistribute it and/or modify it under
+# the terms of the BSD 3-Clause license. See the accompanying LICENSE file.
+
+# appropriate combination for quadruple precision arithmetic is necessary
+# that depepnds on usage of DD, __float128 (GNU/Intel), or long double (Clang)
+
+include ../Makefile.generic.inc
+
+SRCS = test_gemm.cc test_gemmt.cc test_symm.cc test_hemm.cc test_her.cc \
+       test_her2.cc test_her2k.cc test_herk.cc \
+       test_axpy.cc test_trsv.cc test_dot.cc \
+       test_gemv.cc test_ger.cc test_iamax.cc test_nrm2.cc test_scal.cc \
+       test_symv.cc test_syr.cc test_syr2.cc test_syr2k.cc \
+       test_syrk.cc test_trmv.cc test_trsm.cc test_trmm.cc test_omatcopy.cc \
+       lapack_wrappers.cc test.cc test_error.cc
+OBJS = $(SRCS:%.cc=%.o)
+CXXFLAGS += -I$(TESTSWEEPER)
+EXEC = tester
+
+all: $(EXEC)
+
+tester: $(OBJS)
+	$(CXX) $(OBJS) $(TESTBLASLIB) $(BLASLIB) $(TESTSWEEPERLIB) $(TMBLASLIB) $(QUADLIB)  -lm -o $(EXEC)
+
+%.o : %.cc
+	$(CXX) $(CXXFLAGS) -I. $(TMBLASINC) $(TESTBLASINC) $(BLASINC) $(BLASPPINC) $(QUADINC) -c $< -o $@ 
+
+clean:
+	-rm -f $(OBJS) $(EXEC) *.d
+
