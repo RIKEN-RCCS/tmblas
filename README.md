@@ -97,7 +97,7 @@
 <h2>Publications</h2>
 <ul>
 <li>Atsushi Suzuki, Daichi Mukunoki, Toshiyuki Imamura, tmBLAS: a Mixed Precision BLAS by C++ Template, ISC High Performance (ISC 2023), research poster session, May, 2023.</li>
-<li>Daichi Mukunoki, Atsushi Suzuki, Toshiyuki Imamura, Multiple and Mixed Precision BLAS with C++ Template, 5th R-CCS International Symposium, Feb. 6, 2023.</li>
+<li>Daichi Mukunoki, Atsushi Suzuki, Toshiyuki Imamura, Multiple and Mixed Precision BLAS with C++ Template, 5th R-CCS International Symposium, poster presentation, Feb. 6, 2023.</li>
 </ul>
 
 <h2>Contact</h2>
