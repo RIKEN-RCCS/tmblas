@@ -87,7 +87,7 @@
 </ol>
 
 <h2>Test</h2>
-<p>The algorithms written as templates were validated in the following way: we confirmed that the results were bit-level consistent with BLAS++, using floating-point inputs that were truncated to avoid rounding errors in double precision operations. These tests were performed because some of the routines changed the loop order from the BLAS++ code, which changed the order of the floating-point operations, resulting in a loss of reproducibility. For TRSV and TRSM, we use reduced data obtained by factorization in LAPACK as the same way of  BLAS++ and truncate them as other routines  Testing for the accuracy of the mixed-precision routines are still under consideration.</p>
+<p>The algorithms written as templates were validated in the following way: we confirmed that the results were bit-level consistent with BLAS++, using floating-point inputs that were truncated to avoid rounding errors in double precision operations. These tests were performed because some of the routines changed the loop order from the BLAS++ code, which changed the order of the floating-point operations, resulting in a loss of reproducibility. For TRSV and TRSM, we use reduced data obtained by factorization in LAPACK as the same way of BLAS++ and truncate them as other routines. Testing for the accuracy of the mixed-precision routines are still under consideration.</p>
 <ul>
 <li>test-cblas: blaspp's test, comparing with CBLAS (MKL) in single and double precision</li>
 <li>test-blaspp: check bit-level consistency of results with blaspp's templated codes (included) in double, quadruple, and octuple precision using truncated floating-point input</li>
