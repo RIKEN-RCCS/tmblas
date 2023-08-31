@@ -3,8 +3,8 @@
 //This program is free software: you can redistribute it and/or modify it under
 //the terms of the BSD 3-Clause license. See the accompanying LICENSE file.
 
-#ifndef _MIXEDP_DIV_CPP
-#define _MIXEDP_DIV_CPP
+#ifndef _MIXEDP_DIV_HPP
+#define _MIXEDP_DIV_HPP
 
 #include "tmblasarch.hpp"
 
