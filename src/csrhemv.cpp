@@ -3,12 +3,8 @@
 //This program is free software: you can redistribute it and/or modify it under
 //the terms of the BSD 3-Clause license. See the accompanying LICENSE file.
 
-#ifndef _CSRHEMV_CPP
-# define _CSRHEMV_CPP
-
 #include "tmblas.hpp"
 #include "csrhemv_tmpl.hpp"
-
 
 namespace tmblas{
 //complex
@@ -291,5 +287,3 @@ void csrhemv<std::complex<octuple>, std::complex<octuple>, std::complex<octuple>
   
   
 } // namespace tmblas
-#endif
-

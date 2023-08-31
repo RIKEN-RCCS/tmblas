@@ -3,12 +3,8 @@
 //This program is free software: you can redistribute it and/or modify it under
 //the terms of the BSD 3-Clause license. See the accompanying LICENSE file.
 
-#ifndef _CSRGEMM_CPP
-# define _CSRGEMM_CPP
-
 #include "tmblas.hpp"
 #include "csrgemm_tmpl.hpp"
-
 
 namespace tmblas{
 //real
@@ -695,5 +691,4 @@ void csrgemm<std::complex<octuple>, std::complex<octuple>, std::complex<octuple>
   
   
 } // namespace tmblas
-#endif
 

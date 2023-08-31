@@ -3,12 +3,8 @@
 //This program is free software: you can redistribute it and/or modify it under
 //the terms of the BSD 3-Clause license. See the accompanying LICENSE file.
 
-#ifndef _CSRSYMM_CPP
-# define _CSRSYMM_CPP
-
 #include "tmblas.hpp"
 #include "csrsymm_tmpl.hpp"
-
 
 namespace tmblas{
 //real
@@ -695,5 +691,4 @@ void csrsymm<std::complex<octuple>, std::complex<octuple>, std::complex<octuple>
   
   
 } // namespace tmblas
-#endif
 
