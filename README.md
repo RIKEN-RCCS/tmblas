@@ -1,6 +1,7 @@
 # tmBLAS (version 0.1)
 
 <h2>Overview</h2>
+
 <p><b>Templated mixed-precision Basic Linear Algebra Subprograms (tmBLAS)</b> is a reference BLAS implementation for mixed-precision computation implemented using C++ template based on BLAS++. For mixed-precision computation, tmBLAS decouples data-types of operator and operands in BLAS routines; each operand can take a different data-type, and it can perform operations with higher precision than the operands' data-type.</p>
 <p>tmBLAS is a template library, which you can instantiate with any data type you want, but has already instantiated routines with half, float, double, quadruple, and octuple-precision input/output data and operations, which also support operations in one level higher precision than the data precision.</p>
 <p>For decoupling data-types of operator and operands, some routines require an additional working array to store intermediate values. Users can select to prepare the working array prior to calling routine or to ask the routine for dynamic allocation and deallocation of them.</p>
