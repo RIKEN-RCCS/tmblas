@@ -124,4 +124,5 @@ template<typename Td, typename Ta, typename Tb,
   }
 
 } // namespace tmblas
+
 #endif

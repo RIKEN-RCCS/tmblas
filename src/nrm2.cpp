@@ -14,25 +14,25 @@
 namespace tmblas {
 
 template
-half nrm2<half, float>(
+half nrm2<half, half, float>(
      const idx_int n,
      half const *x,
      const idx_int incx);
 
 template
-half nrm2<std::complex<half>, std::complex<float> >(
+half nrm2<std::complex<half>, std::complex<half>, std::complex<float> >(
      const idx_int n,
      std::complex<half> const *x,
      const idx_int incx);
 
 template
-double nrm2<double, quadruple>(
+double nrm2<double, double, quadruple>(
      const idx_int n,
      double const *x,
      const idx_int incx);
 
 template
-double nrm2<std::complex<double>, std::complex<quadruple> >(
+double nrm2<std::complex<double>, std::complex<double>, std::complex<quadruple> >(
      const idx_int n,
      std::complex<double> const *x,
      const idx_int incx);

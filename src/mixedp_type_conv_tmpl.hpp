@@ -91,4 +91,5 @@ blas::complex_type<Tb> type_conv(blas::real_type<Tb> const &b)
 }
 
 } // namespace
+
 #endif

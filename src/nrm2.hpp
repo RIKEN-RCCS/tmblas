@@ -31,8 +31,8 @@ namespace tmblas {
 ///
 /// @ingroup nrm2
 
-template< typename T, typename Td = T >
-blas::real_type<T>
+template< typename T, typename Tc = T, typename Td = T >
+blas::real_type<Tc>
 nrm2(
     const idx_int n,
     T const * x, const idx_int incx );

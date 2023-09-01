@@ -38,8 +38,8 @@ namespace tmblas {
 ///
 /// @ingroup dot
 
-template<typename Ta, typename Tb, typename Td = blas::scalar_type<Ta, Tb> > 
-blas::scalar_type<Ta, Tb>  dotu(
+template<typename Ta, typename Tb, typename Tc = blas::scalar_type<Ta, Tb>, typename Td = Tc > 
+Tc dotu(
                      const idx_int n,  
                      Ta const *x, int incx, 
                      Tb const *y, int incy);

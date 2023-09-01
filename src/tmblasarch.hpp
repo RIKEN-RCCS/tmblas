@@ -740,13 +740,14 @@ void msub(Td &c, Td const &a, Td const &b) {
   template<>
   std::complex<double> conjg(const std::complex<double> &a);
 } // namespace tmblas
+
 #include "mixedp_type_conv.hpp"
+#include "mixedp_msub.hpp"
+#include "mixedp_madd.hpp"
 #include "mixedp_cmp.hpp"
 #include "mixedp_sub.hpp"
 #include "mixedp_add.hpp"
 #include "mixedp_mul.hpp"
 #include "mixedp_div.hpp"
-#include "mixedp_madd.hpp"
-#include "mixedp_msub.hpp"
 
 #endif

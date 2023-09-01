@@ -96,7 +96,7 @@ bool mixedp_eq<std::complex<float>, int>(std::complex<float> const &a, int const
 	  (imag<float>(a) == zero));
 }
 
-  template<>
+template<>
 bool mixedp_eq<double, int>(double const &a, int const &b)
 {
   double workb(b);

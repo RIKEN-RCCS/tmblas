@@ -230,7 +230,6 @@ void gemm<quadruple, quadruple, quadruple>(
 				  quadruple const &beta, 
 				  quadruple *C, idx_int ldc);
 
-// instantiation with single complex data type
 template
 void gemm<std::complex<quadruple>, std::complex<quadruple>, std::complex<quadruple> >(
 				  blas::Op transA,

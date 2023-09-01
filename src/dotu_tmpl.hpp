@@ -38,13 +38,12 @@ namespace tmblas {
 ///
 /// @ingroup dotu
 
-template<typename Ta, typename Tb, typename Td>
-blas::scalar_type<Ta, Tb>  dotu(
+template<typename Ta, typename Tb, typename Tc, typename Td>
+Tc dotu(
                      const idx_int n,  
                      Ta const *x, idx_int incx, 
                      Tb const *y, idx_int incy)
 {
-  typedef blas::scalar_type<Ta, Tb> scalar_t;
   typedef blas::real_type<Td> Tdreal;
   //  typedef blas::real_type<Ta> Tareal;    
   // check arguments
@@ -70,7 +69,7 @@ blas::scalar_type<Ta, Tb>  dotu(
       iy += incy;
     }
   }
-  return type_conv<scalar_t, Td>(result);
+  return type_conv<Tc, Td>(result);
 }
 
 }

@@ -14,19 +14,19 @@
 namespace tmblas {
 
 template 
-std::complex<half> dotu<std::complex<half>, std::complex<half>, std::complex<float> >(
+std::complex<half> dotu<std::complex<half>, std::complex<half>, std::complex<half>, std::complex<float> >(
                      const idx_int n,  
                      std::complex<half> const *x, idx_int incx, 
                      std::complex<half> const *y, idx_int incy);
 
 template 
-std::complex<float> dotu<std::complex<float>, std::complex<float>, std::complex<double> >(
+std::complex<float> dotu<std::complex<float>, std::complex<float>, std::complex<float>, std::complex<double> >(
                      const idx_int n,  
                      std::complex<float> const *x, idx_int incx, 
                      std::complex<float> const *y, idx_int incy);
 
 template 
-std::complex<double> dotu<std::complex<double>, std::complex<double>, std::complex<quadruple> >(
+std::complex<double> dotu<std::complex<double>, std::complex<double>, std::complex<double>, std::complex<quadruple> >(
                      const idx_int n,  
                      std::complex<double> const *x, idx_int incx, 
                      std::complex<double> const *y, idx_int incy);

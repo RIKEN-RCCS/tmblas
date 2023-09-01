@@ -14,37 +14,37 @@
 namespace tmblas {
 
 template 
-half dot<half, half, float>(
+half dot<half, half, half, float>(
                      const idx_int n,  
                      half const *x, idx_int incx, 
                      half const *y, idx_int incy);
 
 template 
-std::complex<half> dot<std::complex<half>, std::complex<half>, std::complex<float> >(
+std::complex<half> dot<std::complex<half>, std::complex<half>, std::complex<half>, std::complex<float> >(
                      const idx_int n,  
                      std::complex<half> const *x, idx_int incx, 
                      std::complex<half> const *y, idx_int incy);
 
 template 
-float dot<float, float, double>(
+float dot<float, float, float, double>(
                      const idx_int n,  
                      float const *x, idx_int incx, 
                      float const *y, idx_int incy);
 
 template 
-std::complex<float> dot<std::complex<float>, std::complex<float>, std::complex<double> >(
+std::complex<float> dot<std::complex<float>, std::complex<float>, std::complex<float>, std::complex<double> >(
                      const idx_int n,  
                      std::complex<float> const *x, idx_int incx, 
                      std::complex<float> const *y, idx_int incy);
 
 template 
-double dot<double, double, quadruple>(
+double dot<double, double, double, quadruple>(
                      const idx_int n,  
                      double const *x, idx_int incx, 
                      double const *y, idx_int incy);
 
 template 
-std::complex<double> dot<std::complex<double>, std::complex<double>, std::complex<quadruple> >(
+std::complex<double> dot<std::complex<double>, std::complex<double>, std::complex<double>, std::complex<quadruple> >(
                      const idx_int n,  
                      std::complex<double> const *x, idx_int incx, 
                      std::complex<double> const *y, idx_int incy);
