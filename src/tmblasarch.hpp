@@ -183,6 +183,67 @@ namespace blas {
   {
     using type = decay_t< std::complex<quadruple> >;
   };
+  // for comparison with integer
+  template<>
+  struct scalar_type_traits< half, int >
+  {
+    using type = decay_t<half>;
+  };
+
+  template<>
+  struct scalar_type_traits< float, int >
+  {
+    using type = decay_t<float>;
+  };
+
+  template<>
+  struct scalar_type_traits< double, int >
+  {
+    using type = decay_t<double>;
+  };
+
+  template<>
+  struct scalar_type_traits<quadruple, int>
+  {
+    using type = decay_t<quadruple>;
+  };
+
+  template<>
+  struct scalar_type_traits< octuple, int >
+  {
+    using type = decay_t<octuple>;
+  };
+  
+  template<>
+  struct scalar_type_traits< std::complex<half>, std::complex<int> >
+  {
+    using type = decay_t< std::complex<half> >;
+  };
+
+  template<>
+  struct scalar_type_traits< std::complex<float>, std::complex<int> >
+  {
+    using type = decay_t< std::complex<float> >;
+  };
+  
+  template<>
+  struct scalar_type_traits< std::complex<double>, std::complex<int> >
+  {
+    using type = decay_t< std::complex<double> >;
+  };
+
+  template<>
+  struct scalar_type_traits< std::complex<quadruple>, std::complex<int> >
+  {
+    using type = decay_t< std::complex<quadruple> >;
+  };
+
+  template<>
+  struct scalar_type_traits< std::complex<octuple>, std::complex<int> >
+  {
+    using type = decay_t< std::complex<octuple> >;
+  };
+  
 }
 
 #ifdef CBLAS_ROUTINES

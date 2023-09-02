@@ -64,86 +64,36 @@ template
   bool mixedp_eq<std::complex<octuple>, std::complex<octuple> >(std::complex<octuple> const &a, std::complex<octuple> const &b);
 
   // comparison with integer
-template<>
-bool mixedp_eq<half, int>(half const &a, int const &b)
-{
-  half workb(b);
-  return (a == workb);
-}
+template
+bool mixedp_eq<half, int>(half const &a, int const &b);
 
-template<>
-bool mixedp_eq<std::complex<half>, int>(std::complex<half> const &a, int const &b)
-{
-  half workb(b);
-  half zero(0);  
-  return ((real<half>(a) == workb) &&
-	  (imag<half>(a) == zero));
-}
+template
+bool mixedp_eq<std::complex<half>, int>(std::complex<half> const &a, int const &b);
 
-template<>
-bool mixedp_eq<float, int>(float const &a, int const &b)
-{
-  half workb(b);
-  return (a == workb);
-}
+template
+bool mixedp_eq<float, int>(float const &a, int const &b);
 
-template<>
-bool mixedp_eq<std::complex<float>, int>(std::complex<float> const &a, int const &b)
-{
-  float workb(b);
-  float zero(0);  
-  return ((real<float>(a) == workb) &&
-	  (imag<float>(a) == zero));
-}
+template
+bool mixedp_eq<std::complex<float>, int>(std::complex<float> const &a, int const &b);
 
-template<>
-bool mixedp_eq<double, int>(double const &a, int const &b)
-{
-  double workb(b);
-  return (a == workb);
-}
+template
+bool mixedp_eq<double, int>(double const &a, int const &b);
 
-template<>
-bool mixedp_eq<std::complex<double>, int>(std::complex<double> const &a, int const &b)
-{
-  double workb(b);
-  double zero(0);  
-  return ((real<double>(a) == workb) &&
-	  (imag<double>(a) == zero));
-}
+template
+bool mixedp_eq<std::complex<double>, int>(std::complex<double> const &a, int const &b);
 
-template<>
-bool mixedp_eq<quadruple, int>(quadruple const &a, int const &b)
-{
-  quadruple workb(b);
-  return (a == workb);
-}
+template
+bool mixedp_eq<quadruple, int>(quadruple const &a, int const &b);
 
-template<>
-bool mixedp_eq<std::complex<quadruple>, int>(std::complex<quadruple> const &a, int const &b)
-{
-  quadruple workb(b);
-  quadruple zero(0);  
-  return ((real<quadruple>(a) == workb) &&
-	  (imag<quadruple>(a) == zero));
-}
+template
+bool mixedp_eq<std::complex<quadruple>, int>(std::complex<quadruple> const &a, int const &b);
 
-template<>
-bool mixedp_eq<octuple, int>(octuple const &a, int const &b)
-{
-  octuple workb(b);
-  return (a == workb);
-}
+template
+bool mixedp_eq<octuple, int>(octuple const &a, int const &b);
 
-template<>
-bool mixedp_eq<std::complex<octuple>, int>(std::complex<octuple> const &a, int const &b)
-{
-  octuple workb(b);
-  octuple zero(0);  
-  return ((real<octuple>(a) == workb) &&
-	  (imag<octuple>(a) == zero));
-}
-  
+template
+bool mixedp_eq<std::complex<octuple>, int>(std::complex<octuple> const &a, int const &b);
+
 // HH
 template
 bool mixedp_lt<half, half>(half const &a, half const &b);

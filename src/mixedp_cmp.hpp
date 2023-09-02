@@ -71,38 +71,5 @@ namespace tmblas {
 		 std::nullptr_t>::type = nullptr>  
     bool mixedp_gt(Ta const &a, Tb const &b);
 
-  // comparison with integer
-template<>
-bool mixedp_eq<half, int>(half const &a, int const &b);
-
-template<>
-bool mixedp_eq<std::complex<half>, int>(std::complex<half> const &a, int const &b);
-
-template<>
-bool mixedp_eq<float, int>(float const &a, int const &b);
-
-template<>
-bool mixedp_eq<std::complex<float>, int>(std::complex<float> const &a, int const &b);
-
-template<>
-bool mixedp_eq<double, int>(double const &a, int const &b);
-
-
-template<>
-bool mixedp_eq<std::complex<double>, int>(std::complex<double> const &a, int const &b);
-
-template<>
-bool mixedp_eq<quadruple, int>(quadruple const &a, int const &b);
-
-template<>
-bool mixedp_eq<std::complex<quadruple>, int>(std::complex<quadruple> const &a, int const &b);
-
-template<>
-bool mixedp_eq<octuple, int>(octuple const &a, int const &b);
-
-template<>
-bool mixedp_eq<std::complex<octuple>, int>(std::complex<octuple> const &a, int const &b);
-  
-//
 }
 #endif
