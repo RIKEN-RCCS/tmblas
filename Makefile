@@ -3,13 +3,15 @@
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the BSD 3-Clause license. See the accompanying LICENSE file.
 
+.PHONY: all clean
+
 all:
-	cd src/; make -f Makefile.generic -j; cd ..;
-	cd test-self; make -f Makefile.generic -j; cd ..;
-	cd test-cblas; make -f Makefile.generic -j; cd ..;
-	cd test-blaspp; make -f Makefile.generic -j; cd ..;
+	$(MAKE) -C src -f Makefile.generic
+	$(MAKE) -C test-self -f Makefile.generic
+	$(MAKE) -C test-cblas -f Makefile.generic
+	$(MAKE) -C test-blaspp -f Makefile.generic
 clean:
-	cd src/; make -f Makefile.generic clean; cd ..;
-	cd test-self; make -f Makefile.generic clean; cd ..;
-	cd test-cblas; make -f Makefile.generic clean; cd ..;
-	cd test-blaspp; make -f Makefile.generic clean; cd ..;
+	$(MAKE) -C src -f Makefile.generic $@
+	$(MAKE) -C test-self -f Makefile.generic $@
+	$(MAKE) -C test-cblas -f Makefile.generic $@
+	$(MAKE) -C test-blaspp -f Makefile.generic $@

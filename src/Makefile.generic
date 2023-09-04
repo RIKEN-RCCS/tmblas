@@ -10,6 +10,7 @@
 
 include ../Makefile.generic.inc
 
+.PHONY: all clean tar
 
 ## dependencies
 

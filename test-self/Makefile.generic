@@ -22,6 +22,8 @@ SRCS = mixedp_add_test.cpp \
 OBJS = $(SRCS:%.cpp=%.o)
 EXEC = $(SRCS:%.cpp=%)
 
+.PHONY: all clean
+
 all: $(EXEC)
 
 mixedp_add_test.o : mixedp_add_test.cpp test_util.hpp
