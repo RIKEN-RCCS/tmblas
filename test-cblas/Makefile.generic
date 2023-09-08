@@ -19,6 +19,8 @@ OBJS = $(SRCS:%.cc=%.o)
 CXXFLAGS += -I$(TESTSWEEPER)
 EXEC = tester
 
+.PHONY: all clean
+
 all: $(EXEC)
 
 tester: $(OBJS)
